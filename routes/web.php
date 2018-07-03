@@ -1,5 +1,11 @@
 <?php
 
+
+
+use App\Data;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,6 +17,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get ( '/', function () {
+	$data = Data::all ();
+	return view ( 'welcome' )->withData ( $data );
+} );

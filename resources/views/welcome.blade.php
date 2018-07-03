@@ -39,22 +39,29 @@
         <th class="text-center">Actions</th>
         </tr>
         </thead>
-        <tbody>
-        <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        </tr>
-        </tbody>
-        </table>
-
+<tbody>
+    @foreach($data as $item)
+    <tr class="item{{$item->id}}">
+    <td>{{$item->id}}</td>
+    <td>{{$item->first_name}}</td>
+    <td>{{$item->last_name}}</td>
+    <td>{{$item->email}}</td>
+    <td>{{$item->gender}}</td>
+    <td>{{$item->country}}</td>
+    <td>{{$item->salary}}</td>
+    <td><button class="edit-modal btn btn-info"
+    data-info="{{$item->id}},{{$item->first_name}},{{$item->last_name}},{{$item->email}},{{$item->gender}},{{$item->country}},{{$item->salary}}">
+    <span class="glyphicon glyphicon-edit"></span> Edit
+    </button>
+    <button class="delete-modal btn btn-danger"
+    data-info="{{$item->id}},{{$item->first_name}},{{$item->last_name}},{{$item->email}},{{$item->gender}},{{$item->country}},{{$item->salary}}">
+    <span class="glyphicon glyphicon-trash"></span> Delete
+    </button></td>
+    </tr>
+    @endforeach
+</tbody>
+</table>
     </body>
-
     <script type="text/javascript">
         $(document).ready(function() {
             $('#table').DataTable();
