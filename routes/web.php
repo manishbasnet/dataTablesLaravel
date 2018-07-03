@@ -51,3 +51,8 @@ Route::post('/editItem', function (Request $request) {
 
 }
 });
+
+Route::post ( '/deleteItem', function (Request $request) {
+	Data::find ( $request->id )->delete ();
+	return response ()->json ();
+} );
